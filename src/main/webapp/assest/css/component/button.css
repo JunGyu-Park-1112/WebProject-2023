@@ -1,0 +1,25 @@
+.button {
+  border-radius: 15px;
+  border: none;
+  padding: 10px 20px;
+  font-size: 15px;
+  position: absolute;
+  bottom: 60px;
+  left: 50px;
+  background-color: #d1891d;
+  font-weight: 600;
+  color: white;
+  text-decoration-line: none;
+}
+
+.button:hover {
+  background-color: #f29300;
+}
+
+.RoundInput{
+  width: 200px;
+  height: 30px;
+  border-radius: 20px;
+  border: none;
+  padding-left: 20px;
+}

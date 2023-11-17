@@ -1,0 +1,21 @@
+.imgColumn {
+  margin-bottom: 50px;
+  width: 350px;
+}
+
+.logoImg {
+  margin-left: 60px;
+  margin-top: 70px;
+}
+
+.gradient {
+  background: rgb(255, 255, 255);
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0.6167717086834734) 0%,
+    rgba(255, 132, 0, 0.8996848739495799) 85%
+  );
+  margin-top: 100px;
+  width: auto;
+  height: 340px;
+}

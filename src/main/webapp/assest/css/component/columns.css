@@ -1,0 +1,19 @@
+.firstColumn {
+  background-color: #ededed;
+  width: 900px;
+  height: 740px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  border-top-left-radius: 10px;
+}
+
+.secondColumn {
+  background-color: #dbd9d6;
+  width: 250px;
+  height: 740px;
+  position: relative;
+  border-top-right-radius: 10px;
+}

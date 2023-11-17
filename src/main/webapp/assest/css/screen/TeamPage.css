@@ -1,0 +1,87 @@
+.FirstRow {
+  height: 250px;
+  width: 800px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  background-color: #dbd9d6;
+  margin: 10px;
+  border-radius: 15px;
+  overflow-x: scroll;
+}
+
+.TeamConstruct {
+  width: 130px;
+  height: 70px;
+  background-color: whitesmoke;
+  margin: 10px;
+  border-radius: 20px;
+  flex: 0 0 auto;
+  padding: 20px;
+  font-weight: 600;
+}
+
+.FirstRow::-webkit-scrollbar {
+  display: none;
+}
+
+.SecondRow {
+  height: 800px;
+  display: flex;
+  box-sizing: border-box;
+  background-color: #dbd9d6;
+  width: 800px;
+  margin: 10px;
+  border-radius: 10px;
+}
+
+.introduceTable {
+  overflow: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  height: 500px;
+  width: 800px;
+}
+
+.introduceTable::-webkit-scrollbar {
+  display: none;
+}
+
+.introduceBox {
+  width: 750px;
+  height: 150px;
+  background-color: white;
+  border-radius: 20px;
+  border-bottom-right-radius: 0;
+  margin: 10px;
+  flex: 0 0 auto;
+}
+
+.introduceBox__name {
+  width: auto;
+  height: 17px;
+  background-color: orange;
+  border-radius: 20px;
+  border-bottom-right-radius: 0;
+  border-bottom-left-radius: 0;
+  padding: 10px;
+  font-weight: 600;
+  font-size: 12px;
+}
+.TeamPageButton {
+  width: 800px;
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 17px;
+}
+.TeamPageButton button {
+  border: none;
+  outline: none;
+}
+
+.secondColumn button:first-child {
+  height: 40px;
+  width: 140px;
+}

@@ -1,0 +1,31 @@
+.buildingColumn {
+  align-items: flex-start;
+}
+
+.buildingTitle {
+  padding-left: 50px;
+  margin: 20px;
+  background-color: green;
+  opacity: 80%;
+  width: 500px;
+  border-radius: 30px;
+}
+
+.TeamForm {
+  padding-left: 50px;
+}
+
+.TeamForm input[type="text"] {
+  padding: 5px;
+  border: none;
+  border-radius: 10px;
+}
+
+.TeamForm textarea {
+  border: none;
+  border-radius: 10px;
+}
+
+.buildingForm{
+	display: flex;
+}

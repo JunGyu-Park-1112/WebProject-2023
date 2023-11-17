@@ -1,0 +1,125 @@
+/* TeamList */
+
+.firstColumn{
+    justify-content: flex-start;
+}
+
+/* TL_Title */
+
+.TL_title{
+    align-self: start;
+    background-color: orange;
+    margin: 30px 0 30px 90px;
+    padding: 10px;
+    border-radius: 10px;
+    margin-left: 70px;
+    color:white;
+    font-weight: bold;
+}
+
+/* TL_checkbox */
+
+.TL_checkbox_Form{
+    font-weight: bold;
+    font-size: small;
+    display: flex;
+    align-items: center;
+    margin-right: 5px;
+    position: relative;
+    right: -90px;
+    bottom: -10px;
+}
+
+/* TL_searchTeam */
+
+.TL_SearchTeam {
+    white-space: nowrap;
+    position: absolute;
+    top: 100px;
+    right: 80px;
+    width: 200px;
+  }
+
+/* TL_list */
+
+.TL_list_box{
+    background-color: #dbd9d6;
+    border-radius: 10px;
+    height: 900px;
+    width: 800px;
+    overflow: auto;
+    display: flex;
+    flex-flow: column nowrap;
+    margin: 20px 10px 100px 20px;   
+}
+.TL_list_box::-webkit-scrollbar{
+    display: none;
+}
+.TL_list{
+    padding: 1rem;
+    flex:1 0 auto;
+    margin: 15px 20px;
+    background-color: wheat;
+    border-radius: 8px;
+    height: 7rem;
+}
+
+/* TL_list_status */
+
+.TL_list_status{
+    display: flex;
+}
+.TL_list_number{
+    background-color: #2E3C7E;
+    color: #FBEAEB;
+    font-weight: bold;
+    padding: 5px;
+    border-radius: 7px 0 0 7px;
+    flex-basis:3em;
+    text-align: center;
+}
+.TL_list_Leader{
+    background-color: #2E3C7E;
+    color: #FBEAEB;
+    font-weight: bold;
+    padding: 5px;
+    border-left: 2px dotted black ;
+    flex-basis:10em;
+    text-align: center;
+}
+.TL_list_extra{
+    background-color: #2E3C7E;
+    color: #FBEAEB;
+    font-weight: bold;
+    padding: 5px;
+    border-left: 2px dotted black;
+    border-radius: 0 7px 7px 0;
+    flex-basis:7em;
+    text-align: center;
+}
+/* TL_list_content */
+
+.TL_list_content{
+    margin: 10px;
+}
+
+/* TL_searchTeam */
+
+.TL_SearchTeam {
+    white-space: nowrap;
+    position: absolute;
+    top: 100px;
+    right: 80px;
+    width: 200px;
+  }
+/* .TL_searchIcon {
+    position: absolute;
+    top: 17px;
+    right: -50px;
+  } */
+button{
+    border: none;
+    padding: auto;
+}
+
+
