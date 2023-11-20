@@ -96,8 +96,12 @@
     		type: "post",
     		url: "HandleTeamClick.jsp",
     		data: {teamId: teamId},
-    		success: function(response){
-    			alert(response);
+    		success: function(sucess){
+    			if(sucess === true){
+    				location.href="UserRoom.jsp";
+    			}else{
+    				alert("지원되셨습니다!");
+    			}
     		}
     	})
     		
