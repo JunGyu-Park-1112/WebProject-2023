@@ -26,7 +26,7 @@ public class TeamDOA {
 			String jdbcurl = "jdbc:mariadb://127.0.0.1:3306/testDB";
 			conn = DriverManager.getConnection(jdbcurl, "root", "ksm8828237!");
 			
-			
+			String query = "INSERT INTO MEMBER VALUES"
 		}
 	}
 

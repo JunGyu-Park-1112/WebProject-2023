@@ -2,10 +2,11 @@
     pageEncoding="UTF-8"%>
 <%@ page import="java.sql.*" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+
 <!-- test할 session의 user_name과 user_status 설정 -->
 <%
 	session.setAttribute("user_name","박준규");
-	session.setAttribute("user_status","Student");
+	session.setAttribute("user_status","Professor");
 %>
 <!-- DB에 저장되어 있는 team List를 request 영역에 저장 -->
 <c:import url="GetTeamInfo.jsp"/>  
@@ -92,37 +93,22 @@
 	})
     $(".TeamConstruct").click(function(){
     	const teamId = $(this).attr("id");
-    	.ajax({
+    	$.ajax({
     		type: "post",
-    		url: "HandleTeamClick.jsp",
+    		url: "HandleTeamClick-db.jsp",
     		data: {teamId: teamId},
-    		success: function(sucess){
-    			if(sucess === true){
+    		success: function(data){
+    			if(data.sucess === "true"){
     				location.href="UserRoom.jsp";
     			}else{
     				alert("지원되셨습니다!");
     			}
-    		}
-    	})
-    		
-    	}
-    	<%
-		//실제로는 DB에서 클릭한 팀의 방장 이름과 확인하여 동일한지 검사한다.
-		if(session.getAttribute("user_Name") == "박준규"){
-    	//현재 접속자의 이름과, 클릭한 Team의 방장 이름이 동일하다면, 해당 Team의 UserRoom으로 이동한다.
-   		%>
-    	location.href="UserRoom.jsp";
-    	<%
-    	}
-		else{ 
-		%>
-			//실제로는 JavaBeans를 이용하여, db에 해당 Team에 지원한 사람 list에 현재 session의 userName을 저장하여야 한다.
-			alert("지원되셨습니다!");
-		<%
-		
-		}
-		%>
-    })
+    		},error: function (xhr, status, error) {
+    	        console.error("AJAX request failed:", status, error);
+    	    }
+    	})	
+    }	
+    )
     const BoxArr = $(".introduceBox");
     $(".SearchForm").submit(function(event){
     	event.preventDefault();
