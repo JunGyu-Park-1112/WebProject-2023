@@ -10,7 +10,7 @@
 	session.setAttribute("class_id","1");
 %>
 <!-- DB에 저장되어 있는 team List를 request 영역에 저장 -->
-<c:import url="GetTeamInfo.jsp"/>  
+<c:import url="GetTeamsInfo.jsp"/>  
 <c:import url="GetMemberInfo.jsp"/>
 <!DOCTYPE html>
 <html>

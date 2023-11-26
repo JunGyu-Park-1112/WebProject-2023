@@ -8,8 +8,7 @@
     Connection conn = null;
     Statement stmt = null;
     ResultSet rs = null;
-    PreparedStatement pstm = null;
-    String user_name = (String)session.getAttribute("user_name");
+    ArrayList<Team> TeamInfo = new ArrayList<>();
     
     try {
         // DB 커넥션 연결
@@ -21,10 +20,9 @@
         if (conn != null)
             System.out.println("DB 접속 성공!");
         
-        String query = "SELECT * FROM team WHERE team_host = ?";
-        pstm = conn.prepareStatement(query);
-        pstm.setString(1,user_name);
-        rs = pstm.executeQuery();
+        String query = "SELECT * FROM team";
+        stmt = conn.createStatement();
+        rs = stmt.executeQuery(query);
 
         while (rs.next()) {
             Team team = new Team();
@@ -32,7 +30,7 @@
             team.setTeam_description(rs.getString("team_description"));
             team.setTeam_host(rs.getString("team_host"));
             
-          //rs에서 String으로 받아온 값을, 리스트의 형태로 분리하여 Beans에 저장하여야 한다.
+            //rs에서 String으로 받아온 값을, 리스트의 형태로 분리하여 Beans에 저장하여야 한다.
             List<String> candidate_List = new ArrayList<>();
             String candidates = rs.getString("team_candidate");
             for(int i = 0; i + 3 < candidates.length(); i+=3)
@@ -42,9 +40,9 @@
             }
             
             team.setTeam_candidate(candidate_List);
-            request.setAttribute("Team", team);
+            TeamInfo.add(team);
         }
-        
+        request.setAttribute("TeamList", TeamInfo);
     } catch (ClassNotFoundException e) {
         e.printStackTrace();
     } catch (SQLException sqle) {
