@@ -18,8 +18,8 @@
       <div class="firstColumn">
         <div class="room_information">
           <!-- 방의 정보를 알려주는 div공간 -->
-          <span class="room_name_font"> Team 이름 : JLP웹프로젝트 </span>
-          <div class="room_text_description">Team 세부 정보</div>
+          <span class="room_name_font"> Team 이름 : ${param.TeamName } </span>
+          <div class="room_text_description">${param.Description }</div>
         </div>
         <div class="deadline">
           <input id="deadline_submit" type="submit" value="마감" />

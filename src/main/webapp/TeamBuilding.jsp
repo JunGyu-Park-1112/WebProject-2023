@@ -15,7 +15,7 @@
         <img class="logoImg" src="img/logo.jpg" />
         <div class="gradient"></div>
       </div>
-      <form class="buildingForm" action="LoadTeamInfo.jsp" method="post">
+      <form class="buildingForm" action="AddTeamInfoToDB.jsp" method="post">
       <div class="firstColumn buildingColumn">
         <div class="buildingTitle">
           <h1>Team Building</h1>

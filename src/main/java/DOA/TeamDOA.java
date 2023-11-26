@@ -7,6 +7,8 @@ import java.sql.SQLException;
 
 import javax.management.RuntimeErrorException;
 
+import beans.Team;
+
 public class TeamDOA {
 	private static TeamDOA instance;
 	private TeamDOA() {}
@@ -26,7 +28,7 @@ public class TeamDOA {
 			String jdbcurl = "jdbc:mariadb://127.0.0.1:3306/testDB";
 			conn = DriverManager.getConnection(jdbcurl, "root", "ksm8828237!");
 			
-			String query = "INSERT INTO MEMBER VALUES"
+			String query = "INSERT INTO MEMBER VALUES";
 		}
 	}
 

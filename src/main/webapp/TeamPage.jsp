@@ -6,7 +6,8 @@
 <!-- test할 session의 user_name과 user_status 설정 -->
 <%
 	session.setAttribute("user_name","박준규");
-	session.setAttribute("user_status","Professor");
+	session.setAttribute("user_status","Student");
+	session.setAttribute("class_id","1");
 %>
 <!-- DB에 저장되어 있는 team List를 request 영역에 저장 -->
 <c:import url="GetTeamInfo.jsp"/>  
