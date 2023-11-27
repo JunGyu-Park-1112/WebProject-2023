@@ -2,6 +2,7 @@
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <c:import url="GetTeamInfo.jsp"/>  
+<%@ page import="java.util.*" %>
 
 <!DOCTYPE html>
 <html>
@@ -22,17 +23,19 @@
         <div class="room_information">
           <!-- 방의 정보를 알려주는 div공간 -->
           <span class="room_name_font"> Team 이름 : ${Team.team_name } </span>
-          <div class="room_text_description">${Team.team_description }</div>
+          <div class="room_text_description">${Team.team_description}</div>
         </div>
         <div class="deadline">
           <input id="deadline_submit" type="submit" value="마감" />
         </div>
         <div class="user_information">
           <!-- 지원자의 이름, 학번등의 정보를 알려주는 div공간 -->
-          <div class="candidate_div">
-            <button id="delete">x</button>
-            <div class="candidate_info"></div>
-          </div>
+          <c:forEach var="candidate" items="${requestScope.Team.team_candidate }">
+          	<div class="candidate_div">
+           	 	<button class="${candidate } delete">x</button>
+           	 	<div class="candidate_info">${candidate }</div>
+         	</div>
+          </c:forEach>
         </div>
       </div>
       <div class="secondColumn">
@@ -45,23 +48,25 @@
       crossorigin="anonymous"
     ></script>
     <script>
+    $(document).ready(function(){
     	$(".secondColumn .button").click(function(){
     		location.href = "TeamPage.jsp";
     	})
-    	/*$("#delete").click(function(){
-    		$.ajax({
-    			type: "post",
-    			data: "DeleteCandidate-db.jsp",
-    			data: {Candidate_name: name},
-    			sucess: function(data){
-    				if(data,sucess === "true"){}
-    					
-    			}else{
-    				
-    			}
-    		})
-    	})*/
     	
+    	$(".delete").click(function(){
+    		const classes = $(this).attr("class").split(" ");
+    		const name = classes[0]; // "delete" 클래스만 가져오기
+    		$.ajax({
+    		    type: "post",
+    		    url: "DeleteCandidate-db.jsp",
+    		    data: {Candidate_name: name},
+    		    success: function(data){
+    		        location.reload();
+    		    }
+    		});
+    	})
+    	
+    })
     </script>
   </body>
 </html>

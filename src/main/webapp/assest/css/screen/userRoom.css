@@ -46,6 +46,7 @@
   height: 250px;
   border-radius: 10px;
   background-color: #dbd9d6;
+  overflow: hide;
 }
 
 .candidate_info {
@@ -84,7 +85,7 @@
   height: 30px;
 }
 
-#delete {
+.delete {
   text-align: center;
   position: absolute;
   right: 23px;

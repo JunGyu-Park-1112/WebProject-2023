@@ -39,6 +39,7 @@
             {
             	String candidate = candidates.substring(i,i+3);
             	candidate_List.add(candidate);
+            	System.out.println(candidate);
             }
             
             team.setTeam_candidate(candidate_List);
