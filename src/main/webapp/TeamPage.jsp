@@ -5,7 +5,7 @@
 
 <!-- test할 session의 user_name과 user_status 설정 -->
 <%
-	session.setAttribute("user_name","박준규");
+	session.setAttribute("user_name","ㅁㄴㅇ");
 	session.setAttribute("user_status","Student");
 	session.setAttribute("class_id","1");
 %>

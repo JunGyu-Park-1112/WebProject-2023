@@ -29,6 +29,7 @@
             team.setTeam_name(rs.getString("team_name"));
             team.setTeam_description(rs.getString("team_description"));
             team.setTeam_host(rs.getString("team_host"));
+            team.setFlag(rs.getInt("FLAG"));
             
             //rs에서 String으로 받아온 값을, 리스트의 형태로 분리하여 Beans에 저장하여야 한다.
             List<String> candidate_List = new ArrayList<>();

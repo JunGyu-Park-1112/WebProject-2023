@@ -65,6 +65,11 @@
     		    }
     		});
     	})
+    	$("#deadline_submit").click(function(){
+    		//해당 팀 DB의 Flag를 1로 수정하여, 해당 팀이 더이상 팀원을 받지 않는다는 것을 명시합니다.
+    		alert("팀 구성이 완료되었습니다!");
+    		location.href="FlagModify-db.jsp";
+    	})
     	
     })
     </script>

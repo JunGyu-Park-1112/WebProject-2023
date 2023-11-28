@@ -24,6 +24,7 @@ public class Team {
 	public String getTeam_description() {return team_description;}
 	public String getTeam_host() {return team_host;}
 	public List getTeam_candidate() {return team_candidate;}
+	public int getFlag() {return Flag;}
 	
 	public void setClass_identifier(String identifier) {
 		this.class_identifier = identifier;
@@ -39,5 +40,8 @@ public class Team {
 	}
 	public void setTeam_candidate(List candidate) {
 		this.team_candidate = candidate;
+	}
+	public void setFlag(int Flag) {
+		this.Flag = Flag;
 	}
 }

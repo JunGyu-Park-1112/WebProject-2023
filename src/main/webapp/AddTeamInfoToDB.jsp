@@ -21,13 +21,14 @@ try {
     if (conn != null)
         System.out.println("DB 접속 성공!");
     
-    String query = "INSERT INTO team (class_identifier, team_name, team_description, team_host, team_candidate) VALUES (?,?,?,?,?);";
+    String query = "INSERT INTO team (class_identifier, team_name, team_description, team_host, team_candidate, FLAG) VALUES (?,?,?,?,?,?);";
     pstm = conn.prepareStatement(query);
     pstm.setString(1, (String)session.getAttribute("class_id"));
     pstm.setString(2,request.getParameter("TeamName"));
     pstm.setString(3,request.getParameter("Description"));
     pstm.setString(4,session_name);
     pstm.setString(5,"");
+    pstm.setInt(6,0);
     
     pstm.executeUpdate();
     out.println("정상적");

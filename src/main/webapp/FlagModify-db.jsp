@@ -6,7 +6,6 @@
 
 <%
     Connection conn = null;
-    Statement stmt = null;
     ResultSet rs = null;
     PreparedStatement pstm = null;
     String user_name = (String)session.getAttribute("user_name");
@@ -21,31 +20,12 @@
         if (conn != null)
             System.out.println("DB 접속 성공!");
         
-        String query = "SELECT * FROM team WHERE team_host = ?";
+        String query = "UPDATE team SET FLAG=? WHERE team_host = ?;";
         pstm = conn.prepareStatement(query);
-        pstm.setString(1,user_name);
-        rs = pstm.executeQuery();
+        pstm.setInt(1,1);
+        pstm.setString(2,user_name);
+        pstm.executeUpdate();
 
-        while (rs.next()) {
-            Team team = new Team();
-            team.setTeam_name(rs.getString("team_name"));
-            team.setTeam_description(rs.getString("team_description"));
-            team.setTeam_host(rs.getString("team_host"));
-            team.setFlag(rs.getInt("FLAG"));
-            
-          //rs에서 String으로 받아온 값을, 리스트의 형태로 분리하여 Beans에 저장하여야 한다.
-            List<String> candidate_List = new ArrayList<>();
-            String candidates = rs.getString("team_candidate");
-            for(int i = 0; i + 3 <= candidates.length(); i+=3)
-            {
-            	String candidate = candidates.substring(i,i+3);
-            	candidate_List.add(candidate);
-            	System.out.println(candidate);
-            }
-            
-            team.setTeam_candidate(candidate_List);
-            request.setAttribute("Team", team);
-        }
         
     } catch (ClassNotFoundException e) {
         e.printStackTrace();
@@ -55,10 +35,11 @@
         // 리소스 해제
         try {
             if (rs != null) rs.close();
-            if (stmt != null) stmt.close();
             if (conn != null) conn.close();
         } catch (SQLException e) {
             e.printStackTrace();
         }
     }
+    //teamPage로 이동
+    response.sendRedirect("TeamPage.jsp");
 %>
