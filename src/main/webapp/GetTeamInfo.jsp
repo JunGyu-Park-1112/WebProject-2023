@@ -35,7 +35,7 @@
           //rs에서 String으로 받아온 값을, 리스트의 형태로 분리하여 Beans에 저장하여야 한다.
             List<String> candidate_List = new ArrayList<>();
             String candidates = rs.getString("team_candidate");
-            for(int i = 0; i + 3 < candidates.length(); i+=3)
+            for(int i = 0; i + 3 <= candidates.length(); i+=3)
             {
             	String candidate = candidates.substring(i,i+3);
             	candidate_List.add(candidate);

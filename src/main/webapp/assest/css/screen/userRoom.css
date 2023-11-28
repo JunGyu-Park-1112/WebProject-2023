@@ -46,9 +46,12 @@
   height: 250px;
   border-radius: 10px;
   background-color: #dbd9d6;
-  overflow: hide;
+  overflow: scroll;
 }
 
+.user_information::-webkit-scrollbar {
+  display: none;
+}
 .candidate_info {
   margin-left: 5px;
   margin-bottom: 15px;

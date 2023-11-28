@@ -8,14 +8,16 @@ public class Team {
 	private String team_description;
 	private String team_host;
 	private List team_candidate;
+	private int Flag;
 	
 	public Team() {}
-	public Team(String identifier,String team_name,String description,String host,List candidate) {
+	public Team(String identifier,String team_name,String description,String host,List candidate, int Flag) {
 		this.class_identifier = identifier;
 		this.team_name = team_name;
 		this.team_description = description;
 		this.team_host = host;
 		this.team_candidate = candidate;
+		this.Flag = Flag;
 	}
 	public String getClass_identifier() {return class_identifier;}
 	public String getTeam_name() {return team_name;}
