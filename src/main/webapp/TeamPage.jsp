@@ -5,7 +5,7 @@
 
 <!-- test할 session의 user_name과 user_status 설정 -->
 <%
-	session.setAttribute("user_name","ㅁㄴㅇ");
+	session.setAttribute("user_name","박준규");
 	session.setAttribute("user_status","Student");
 	session.setAttribute("class_id","1");
 %>
@@ -49,10 +49,12 @@
         <div class="FirstRow">
         <!-- 실제로 구현 후에는, DB에서 Team 이름과 Description 의 정보를 불러와서, 이를 동적으로 배치할 것이다... -->
         <c:forEach items="${TeamList }" var="team">
+        <c:if test="${team.getFlag() != 1}">
         	<div class="TeamConstruct" id="${team.team_name }">
         		<span>${team.team_name }</span><br>
         		<span>-${team.team_description }</span>
         	</div>
+        </c:if>
         </c:forEach>
         </div>
         <div class="TeamPageButton">	
