@@ -1,5 +1,5 @@
 .FirstRow {
-  height: 250px;
+  height: 150px;
   width: 800px;
   display: flex;
   justify-content: flex-start;
@@ -26,7 +26,7 @@
 }
 
 .SecondRow {
-  height: 800px;
+  height: 500px;
   display: flex;
   box-sizing: border-box;
   background-color: #dbd9d6;

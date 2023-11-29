@@ -6,6 +6,7 @@
   border-top-left-radius: 10px;
 }
 
+
 .LoginForm {
   display: flex;
   flex-direction: column;
@@ -32,7 +33,7 @@ label {
   font-weight: 600;
 }
 
-#ID {
+#id {
   margin-left: 50px;
   padding: 5px;
   width: 70%;
@@ -41,7 +42,7 @@ label {
   border: none;
 }
 
-#PW {
+#pw {
   margin-left: 50px;
   padding: 5px;
   width: 70%;
@@ -66,6 +67,30 @@ label {
 .LoginForm_btn:hover {
   background-color: #f29300;
 }
+
+label.error {
+	color: red;
+}
+
+.SigninForm_btn {
+  margin-left:auto;
+  border-radius: 8px;
+  color: #70757a;
+  column-gap: 4px;
+  font-size: 14px;
+  padding: 0 50px 0;
+}
+
+a.signIn{
+  text-decoration: none;
+  color: #70757a;
+}
+
+a.signIn:hover{
+  text-decoration : underline;
+  color: #70757a;
+}
+
 
 .main__firstColumn__announcement {
   background-color: #dbd9d6;

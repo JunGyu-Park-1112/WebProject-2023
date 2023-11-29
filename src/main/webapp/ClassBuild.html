@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html leng = "en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>수업 만들기</title>
+        <link rel="stylesheet" href="./assest/css/style.css" />
+        <script src="./jquery.js"></script>
+        <script>
+				function back(){
+					window.location.href = "mainPage.jsp";
+				}
+		</script>
+    </head>
+    <body>
+        <div class="main">
+            <div class="imgColumn">
+              <img class="logoImg" src="img/logo.jpg" />
+              <div class="gradient"></div>
+            </div>
+            <div class="firstcolumn firstColumn">
+                <div class="TopBar">
+                    <div class="PageTitle">
+                        <i class="fa-regular fa-handshake" ><b> 새로운 수업 만들기</b></i> 
+                    </div>
+                </div>
+                <hr>
+                <form action="BuildProcess.jsp" class="FormBox">
+                    <div class="InputBox">
+                        <fieldset class="field"><legend>수업 만들기</legend>
+                        <div class="Input">
+                           <b>수업 명</b><br>
+                           <input type="text" name="ClassName" class="InputInfo">
+                        </div>
+                        <!-- <div class="Input">
+                            <b>원하는 팀 수</b><br><select name = "TeamCapacity" id="TC" class="InputInfo_S">
+                                <option value="three">3</option>
+                                <option value="four">4</option>
+                                <option value="five">5</option>
+                                <option value="six">6</option>
+                            </select>
+                        </div> -->
+                        <div class="Input">
+                            <b>교수명</b><br>
+                            <input type="text" name="profName"class="InputInfo">
+                        </div>
+                        <div class="Input">
+                            <b>학수 번호</b><br>
+                            <input type="text" name="ClassNum" class="InputInfo">
+                        </div>
+                        <div class="Input">
+                            <b>수업 소개</b><br>
+                            <textarea name="description" id="description" cols="30" rows="10" class="InputInfo_L"></textarea>
+                        </div>
+                        <div class="Input">
+                            <button class="Submit">저장</button>
+                            <button type="button"id="goBackButton" onclick="back()" class="Cancel">취소</button>
+                        </div>
+                    </fieldset>
+                    	</div>
+                	</form>
+          
+                </div>
+            <div class="secondColumn">
+            </div>
+            <script src="https://kit.fontawesome.com/cacb8915e2.js" crossorigin="anonymous"></script>
+    </body>
+</html>

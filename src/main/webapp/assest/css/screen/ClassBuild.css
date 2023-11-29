@@ -1,0 +1,104 @@
+.firstcolumn{
+    align-items: flex-start;
+    border-radius: 10px;
+    display: block;
+}
+.InputBox{
+    position: relative;
+    background-color: blanchedalmond;
+    width: 95%;
+    height: 80vh;
+    align-items: stretch;
+    border-radius: 15px 0 0 15px;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    overflow: scroll;
+    left: 2.5%;
+}
+.InputBox::-webkit-scrollbar{
+    display: none;
+}
+.Input{
+    position: relative;
+    left: 50px;
+    color: #003049;
+    margin: 15px;
+}
+.InputInfo{
+    height: 2em;
+    left: 20px;
+    width: 200px;
+    background-color: #edede9;
+    border-radius: 3px;
+    border: 1px groove black;
+    margin-top: 10px;
+}
+
+.InputInfo_S{   
+    width: 100px;
+    height: 1.5rem;
+    background-color: #edede9;
+    margin-top: 10px;
+}
+.PageTitle{
+    align-self: center;
+    background-color: #d5896f;
+    border-radius: 7px;
+    padding: 13px;
+    color: white;
+    position: relative;
+    left: 130px;
+}
+.TopBar{
+    display: flex;
+    background-color: wheat;
+    width: 100%;
+    height: 17%;
+    border-radius: 10px 0 0 10px;  
+}
+hr{
+    background-color:  grey;
+    border: 0px double;
+    height: 2px;
+    
+}
+.field{
+    width: 80%;
+    position: relative;
+    left: 50px;
+    margin: 15px;
+    color: #003049;
+}
+.Submit{
+    position: relative;
+    left: 380px;
+    width: 70px;
+    height: 2rem;
+    padding: 5px 10px;
+    border: 0px;
+    border-radius: 5px;
+    background-color: #bc6c25;
+    color: #edede9;
+}
+.Submit:hover{
+    background-color: #dda15e;
+}
+.Cancel{
+    position: relative;
+    left: 380px;
+    width: 70px;
+    height: 2rem;
+    padding: 5px 10px;
+    border:0px;
+    border-radius: 5px;
+    background-color: #bc6c25;
+    color: #edede9;
+}
+.Cancel:hover{
+    background-color: #dda15e;
+}
+.InputInfo_L{
+    height: 5rem;
+    width: 500px;
+}

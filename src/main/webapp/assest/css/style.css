@@ -11,6 +11,8 @@
 @import "screen/TeamList.css";
 @import "screen/signIn.css";
 @import "screen/TeamBuilding.css";
+@import "screen/ClassBuild.css";
+@import "screen/signIn.css";
 
 body {
   font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
