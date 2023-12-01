@@ -1,9 +1,20 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+    pageEncoding="UTF-8" session="false"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<c:import url="GetTeamInfo.jsp"/>  
 <%@ page import="java.util.*" %>
+<%@ page import="DOA.TeamDOA" %>
+<%@ page import="beans.Team" %>
 
+<%
+HttpSession session = request.getSession();
+
+String hostName = (String)session.getAttribute("user_name");
+int classNum = (Integer)session.getAttribute("class_id");
+
+TeamDOA Tdao = TeamDOA.getInstance();
+Team team = Tdao.LoadTeamInfo(hostName, classNum);
+pageContext.setAttribute("Team", team);
+%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -30,7 +41,7 @@
         </div>
         <div class="user_information">
           <!-- 지원자의 이름, 학번등의 정보를 알려주는 div공간 -->
-          <c:forEach var="candidate" items="${requestScope.Team.team_candidate }">
+          <c:forEach var="candidate" items="${Team.team_candidate }">
           	<div class="candidate_div">
            	 	<button class="${candidate } delete">x</button>
            	 	<div class="candidate_info">${candidate }</div>
@@ -59,7 +70,7 @@
     		$.ajax({
     		    type: "post",
     		    url: "DeleteCandidate-db.jsp",
-    		    data: {Candidate_name: name},
+    		    data: {Candidate_name: name, class_Num : <%= classNum%>},
     		    success: function(data){
     		        location.reload();
     		    }

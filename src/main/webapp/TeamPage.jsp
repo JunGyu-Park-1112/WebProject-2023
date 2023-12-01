@@ -1,23 +1,37 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+    pageEncoding="UTF-8" session="false"%>
 <%@ page import="java.sql.*" %>
+<%@ page import="DOA.DescriptionDOA" %>
+<%@ page import="beans.Description" %>
+<%@ page import="DOA.TeamDOA" %>
+<%@ page import="beans.Team" %>
+<%@ page import="java.util.*" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-
-<!-- test할 session의 user_name과 user_status 설정 -->
 <%
-	session.setAttribute("user_name","박준규");
-	session.setAttribute("user_status","Student");
-	session.setAttribute("class_id","1");
+	HttpSession session = request.getSession();
+//이 부분만 session에 저장되어 있는 class_Num으로 바꾸면 해결이 될 것 같다.
+	session.setAttribute("class_id",2);
+
+//현재 세션에 저장되어 있는 classNum을 받아온다.
+	int classNum = (Integer)session.getAttribute("class_id");
+
+	DescriptionDOA Ddoa = DescriptionDOA.getInstance();
+	List<Description> descriptions = Ddoa.loadDescription(classNum);
+	pageContext.setAttribute("descriptions", descriptions);
+	
+	TeamDOA Tdoa = TeamDOA.getInstance();
+	List<Team> Teams = Tdoa.loadTeam(classNum);
+	pageContext.setAttribute("Teams",Teams);
+	
 %>
-<!-- DB에 저장되어 있는 team List를 request 영역에 저장 -->
-<c:import url="GetTeamsInfo.jsp"/>  
-<c:import url="GetMemberInfo.jsp"/>
+
+
 <!DOCTYPE html>
 <html>
 <head>
 	<meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>TeamPage</title>
+    <title>TeamPrage</title>
     <link rel="stylesheet" href="./assest/css/style.css" />
     <script src="./jquery.js"></script>
     <script>
@@ -47,8 +61,7 @@
       </div>
       <div class="firstColumn">
         <div class="FirstRow">
-        <!-- 실제로 구현 후에는, DB에서 Team 이름과 Description 의 정보를 불러와서, 이를 동적으로 배치할 것이다... -->
-        <c:forEach items="${TeamList }" var="team">
+        <c:forEach items="${Teams }" var="team">
         <c:if test="${team.getFlag() != 1}">
         	<div class="TeamConstruct" id="${team.team_name }">
         		<span>${team.team_name }</span><br>
@@ -73,10 +86,10 @@
         </div>
         <div class="SecondRow">
           <div class="introduceTable">
-            <c:forEach items="${memberList }" var="member">
+            <c:forEach items="${descriptions }" var="member">
         		<div class="introduceBox" id="${member.user_name }">
         			<div class="introduceBox__name">${member.id} ${member.user_name }</div>
-        			<div class="introduceBox__content">일단 이 부분은 보류</div>
+        			<div class="introduceBox__content">${member.user_description }</div>
         		</div>
         </c:forEach>
           </div>

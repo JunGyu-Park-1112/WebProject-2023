@@ -3,7 +3,7 @@ package beans;
 import java.util.List;
 
 public class Team {
-	private String class_identifier;
+	private String class_Num;
 	private String team_name;
 	private String team_description;
 	private String team_host;
@@ -12,22 +12,22 @@ public class Team {
 	
 	public Team() {}
 	public Team(String identifier,String team_name,String description,String host,List candidate, int Flag) {
-		this.class_identifier = identifier;
+		this.class_Num = identifier;
 		this.team_name = team_name;
 		this.team_description = description;
 		this.team_host = host;
 		this.team_candidate = candidate;
 		this.Flag = Flag;
 	}
-	public String getClass_identifier() {return class_identifier;}
+	public String getClass_Num() {return class_Num;}
 	public String getTeam_name() {return team_name;}
 	public String getTeam_description() {return team_description;}
 	public String getTeam_host() {return team_host;}
 	public List getTeam_candidate() {return team_candidate;}
 	public int getFlag() {return Flag;}
 	
-	public void setClass_identifier(String identifier) {
-		this.class_identifier = identifier;
+	public void setClass_Num(String identifier) {
+		this.class_Num = identifier;
 	}
 	public void setTeam_name(String team_name) {
 		this.team_name = team_name;

@@ -6,6 +6,7 @@
 
 <%
 String Candidate_name = request.getParameter("Candidate_name");
+Integer class_Num = Integer.parseInt(request.getParameter("class_Num"));
 Connection conn = null;
 PreparedStatement pstm = null;
 ResultSet rs = null;
@@ -25,9 +26,10 @@ try{
     if (conn != null)
         System.out.println("DB 접속 성공!");
     
-    String query = "SELECT team_candidate FROM team WHERE team_host = ?";
+    String query = "SELECT team_candidate FROM team WHERE team_host = ? AND class_Num = ?;";
     pstm = conn.prepareStatement(query);
     pstm.setString(1, session_name);
+    pstm.setInt(2,class_Num);
     rs = pstm.executeQuery();
     
     while(rs.next())
@@ -38,10 +40,11 @@ try{
     }
     
     //DB에 정보를 수정한다.
-    query = "UPDATE team SET team_candidate = ? WHERE team_host = ? ";
+    query = "UPDATE team SET team_candidate = ? WHERE team_host = ? AND class_Num = ?;";
     pstm = conn.prepareStatement(query);
     pstm.setString(1, after_candidates);
     pstm.setString(2, session_name);
+    pstm.setInt(3, class_Num);
     pstm.executeUpdate();
     
     jsonResponse="{\"sucess\":\"true\"}";

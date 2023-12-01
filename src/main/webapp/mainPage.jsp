@@ -1,4 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" session="false"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ page import="java.util.*" %>
 <%@ page import="java.io.*" %>
@@ -22,8 +22,7 @@
     <link rel="stylesheet" href="./assest/css/style.css"/>
     <script src="./jquery.js"></script>
     <%
-    	session.setAttribute("user_name","박준규");
-		session.setAttribute("user_status","Professor");
+    	HttpSession session = request.getSession();
 		session.setAttribute("class_id","1");
 		//login한 id의 member_status를 status의 속성값으로 설정 
 		String status = (String)session.getAttribute("user_status");

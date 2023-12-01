@@ -33,7 +33,7 @@ label {
   font-weight: 600;
 }
 
-#id {
+.HomePage_id {
   margin-left: 50px;
   padding: 5px;
   width: 70%;
@@ -42,7 +42,7 @@ label {
   border: none;
 }
 
-#pw {
+.HomePage_pw {
   margin-left: 50px;
   padding: 5px;
   width: 70%;

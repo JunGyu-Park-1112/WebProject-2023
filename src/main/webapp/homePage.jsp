@@ -23,6 +23,7 @@
             <label for="id">아이디 (학번)</label>
             <input
               id="id"
+              class="HomePage_id"
               type="text"
               placeholder="학번을 입력하세요"
               name="id"
@@ -42,6 +43,7 @@
             <label for="pw">비밀번호</label>
             <input
               id="pw"
+              class="HomePage_pw"
               type="password"
               placeholder="비밀번호를 입력하세요"
               name="pw"
