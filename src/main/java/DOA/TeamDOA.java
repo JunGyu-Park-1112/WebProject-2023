@@ -119,4 +119,37 @@ public class TeamDOA {
 		return team;
 		
 	}
+	public void AddTeamInfo(int classNum, String team_name, String team_description, String team_host)
+	{
+		Connection conn = null;
+		PreparedStatement pstm = null;
+		
+		try {
+			String driver = "org.mariadb.jdbc.Driver";
+			Class.forName(driver);
+			String jdbcurl = "jdbc:mariadb://127.0.0.1:3306/testDB";
+			
+			conn = DriverManager.getConnection(jdbcurl,"root","ksm8828237!");
+			if(conn != null)
+				System.out.println("DB 접속 성공!");
+			
+			String query = "INSERT INTO team (class_Num, team_name, team_description, team_host, team_candidate, FLAG) VALUES (?,?,?,?,?,?);";
+		    pstm = conn.prepareStatement(query);
+		    pstm.setInt(1, classNum);
+		    pstm.setString(2, team_name);
+		    pstm.setString(3, team_description);
+		    pstm.setString(4, team_host);
+		    pstm.setString(5, "");
+		    pstm.setInt(6, 0);
+		    
+		    pstm.executeUpdate();
+		    conn.commit();
+		    
+		    pstm.close();
+		    conn.close();
+		}catch(Exception e)
+		{
+			System.out.println("오류 발생...-AddTeamInfo" + e.getMessage());
+		}
+	}
 }

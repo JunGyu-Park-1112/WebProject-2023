@@ -75,4 +75,33 @@ public class DescriptionDOA {
 		         } 
 		     }
 		}
+	public void AddDescription(String user_name, String id, String user_description, int class_Num)
+	{
+		Connection conn = null;
+		PreparedStatement pstm = null;
+		ResultSet rs = null;
+		
+		try {
+			String driver = "org.mariadb.jdbc.Driver";
+			Class.forName(driver);
+			String jdbcurl = "jdbc:mariadb://127.0.0.1:3306/testdb";
+			conn = DriverManager.getConnection(jdbcurl, "root", "ksm8828237!");
+			String query = "INSERT INTO description (user_name, id, user_description, class_Num) VALUES(?,?,?,?);";
+			pstm = conn.prepareStatement(query);
+			
+			pstm.setString(1,user_name);
+			pstm.setString(2, id);
+			pstm.setString(3, user_description);
+			pstm.setInt(4, class_Num);
+			
+			pstm.executeUpdate();
+			conn.commit();
+			
+			pstm.close();
+			conn.close();
+		}catch(Exception e)
+		{
+			System.out.println("에러 발생... -AddDescription" + e.getMessage());
+		}
+	}
 	}

@@ -12,21 +12,17 @@
 		String className = request.getParameter("className");
 		String profName = request.getParameter("profName");
 		String description = request.getParameter("description");
-		//String classNum = request.getParameter("classNum");
-		String classNum = "1";
-		
-		
-		
+		String classNum = request.getParameter("classNum");
 		
 		ArrayList<String> Classinfo = new ArrayList<>();
 		
 		Classinfo.add(className);
 		Classinfo.add(profName);
 		Classinfo.add(description);
-		Classinfo.add(classNum);
 		
 		HttpSession session = request.getSession();
 		session.setAttribute("Classinfo",Classinfo);
+		session.setAttribute("classNum",classNum);
 		
 		
 	%>

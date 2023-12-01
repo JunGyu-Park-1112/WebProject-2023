@@ -9,11 +9,11 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%
 	HttpSession session = request.getSession();
-//이 부분만 session에 저장되어 있는 class_Num으로 바꾸면 해결이 될 것 같다.
-	session.setAttribute("class_id",2);
 
-//현재 세션에 저장되어 있는 classNum을 받아온다.
-	int classNum = (Integer)session.getAttribute("class_id");
+	//현재 세션에 저장되어 있는 classNum을 받아온다.
+	int classNum = Integer.parseInt((String)session.getAttribute("classNum"));
+	String user_name = (String)session.getAttribute("user_name");
+	String id = (String)session.getAttribute("id");
 
 	DescriptionDOA Ddoa = DescriptionDOA.getInstance();
 	List<Description> descriptions = Ddoa.loadDescription(classNum);
@@ -92,6 +92,21 @@
         			<div class="introduceBox__content">${member.user_description }</div>
         		</div>
         </c:forEach>
+          </div>
+          <div class="comment">
+            <div class="comment_header"><%=id %> <%=user_name %></div>
+            <div class="comment_body">
+              <form class="comment_form" method="post" action="AddDescription-db.jsp">
+                <input
+                  type="text"
+                  placeholder="1인당 1번만 입력해 주세요..."
+                  name="description"
+                />
+                <button>
+                  <i class="fa-solid fa-angle-up fa-xl" style="color: white;"></i></i>
+                </button>
+              </form>
+            </div>
           </div>
         </div>
       </div>

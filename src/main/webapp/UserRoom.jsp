@@ -9,7 +9,7 @@
 HttpSession session = request.getSession();
 
 String hostName = (String)session.getAttribute("user_name");
-int classNum = (Integer)session.getAttribute("class_id");
+int classNum = Integer.parseInt((String)session.getAttribute("classNum"));
 
 TeamDOA Tdao = TeamDOA.getInstance();
 Team team = Tdao.LoadTeamInfo(hostName, classNum);

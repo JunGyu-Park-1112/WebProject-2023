@@ -61,7 +61,7 @@
     	</form>
 		    <div class="teamTable">
 		        <c:forEach var="bean" items="${ClassBean}">
-		            <div class="team" style="cursor: pointer;" onclick="handleTeamClick('${bean.className}', '${bean.profName}', '${bean.description}')">
+		            <div class="team" style="cursor: pointer;" onclick="handleTeamClick('${bean.className}', '${bean.profName}', '${bean.description}', '${bean.classNum }')">
 		                <div class="classinfo">
 		                    <div class="className">강의 이름 : ${bean.className}</div>
 		                    <div class="classProf">교수명: ${bean.profName}</div>
@@ -93,10 +93,11 @@
                 }
             }
         }
-        function handleTeamClick(className, classProf, description) {     //클릭시 인수에는 실제 클릭할 얘들의 정보가 담김  
+        function handleTeamClick(className, classProf, description, classNum) {     //클릭시 인수에는 실제 클릭할 얘들의 정보가 담김  
             window.location.href = "ServerPage.jsp?className=" + encodeURIComponent(className) +
                                    "&profName=" + encodeURIComponent(classProf) +
-                                   "&description=" + encodeURIComponent(description);
+                                   "&description=" + encodeURIComponent(description) + 
+                                   "&classNum=" + encodeURIComponent(classNum);;
         }
     </script>
     <script src="./assest/js/mainPage.js"></script>
