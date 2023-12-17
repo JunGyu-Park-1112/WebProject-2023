@@ -11,7 +11,7 @@ public class Team {
 	private int Flag;
 	
 	public Team() {}
-	public Team(String identifier,String team_name,String description,String host,List candidate, int Flag) {
+	public Team(String identifier,String team_name,String description,String host, List candidate, int Flag) {
 		this.class_Num = identifier;
 		this.team_name = team_name;
 		this.team_description = description;

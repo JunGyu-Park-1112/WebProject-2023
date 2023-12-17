@@ -23,18 +23,19 @@
     <script src="./jquery.js"></script>
     <%
     	HttpSession session = request.getSession();
-		session.setAttribute("class_id","1");
-		//login한 id의 member_status를 status의 속성값으로 설정 
 		String status = (String)session.getAttribute("user_status");
 		
 	%>
     <script>                 	
-		document.addEventListener("DOMContentLoaded", function() { //session의 status에 따라 숨기기 설정
-			var status = <%= status%>
-			if(status !="Professor"){
-				document.getElementById("bt").style.display = "none";
+		$(document).ready(function(){
+			<%
+			if(status.equals("Student")){
+			%>
+				$(".secondColumn .button").hide();
+			<%
 			}
-		});
+			%>
+		})
 	</script>
 	
   </head>

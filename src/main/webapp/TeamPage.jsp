@@ -51,12 +51,15 @@
         }
         %>
     })
+    function gotoMain(){
+    	location.href="mainPage.jsp";
+    }
     </script>
 </head>
 <body>
     <div class="main">
       <div class="imgColumn">
-        <img class="logoImg" src="img/logo.jpg" />
+        <img class="logoImg" src="img/logo.jpg" onclick='gotoMain()'/>
         <div class="gradient"></div>
       </div>
       <div class="firstColumn">

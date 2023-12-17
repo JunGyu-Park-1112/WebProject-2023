@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" session="false"%>
 <%@ page import="java.util.ArrayList" %>
+<%@ page import="DOA.ClassDOA" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -24,8 +26,14 @@
 		session.setAttribute("Classinfo",Classinfo);
 		session.setAttribute("classNum",classNum);
 		
+		ClassDOA cDOA = ClassDOA.getInstance();
+		boolean isEnd = cDOA.isEnd(Integer.parseInt(classNum));
 		
 	%>
-	<jsp:forward page="TeamPage.jsp"/>
+	<c:if test="<%=!isEnd%>">
+		<jsp:forward page="TeamPage.jsp"/>
+	</c:if>
+	<!-- 해당 class가 팀 매칭이 종료된 상황이라면 -->
+	<jsp:forward page="TeamList.jsp"/>
 </body>
 </html>

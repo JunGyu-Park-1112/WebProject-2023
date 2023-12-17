@@ -6,6 +6,9 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
 
 import javax.management.RuntimeErrorException;
 import javax.servlet.RequestDispatcher;
@@ -31,7 +34,7 @@ public class memberDOA {
 	      try {
 	         String driver = "org.mariadb.jdbc.Driver";
 	         Class.forName(driver);
-	         String jdbcurl = "jdbc:mariadb://127.0.0.1:3306/testdb";
+	         String jdbcurl = "jdbc:mariadb://testdb12.ctcd1mj9uzzg.ap-northeast-2.rds.amazonaws.com:3306/testdb";
 	         conn = DriverManager.getConnection(jdbcurl, "root", "ksm8828237!");
 	         
 	         String query1 = "SELECT id FROM member WHERE id=?";
@@ -88,7 +91,7 @@ public class memberDOA {
 		try {
 			String driver = "org.mariadb.jdbc.Driver";
 			Class.forName(driver);
-			String jdbcurl = "jdbc:mariadb://127.0.0.1:3306/testDB";
+			String jdbcurl = "jdbc:mariadb://testdb12.ctcd1mj9uzzg.ap-northeast-2.rds.amazonaws.com:3306/testdb";
 			conn = DriverManager.getConnection(jdbcurl, "root", "ksm8828237!");
 			
 			String query = "INSERT INTO MEMBER VALUES(?,?,?,?)";
@@ -138,7 +141,7 @@ public class memberDOA {
 		   try {
 		         String driver = "org.mariadb.jdbc.Driver";
 		         Class.forName(driver);
-		         String jdbcurl = "jdbc:mariadb://127.0.0.1:3306/testdb";
+		         String jdbcurl = "jdbc:mariadb://testdb12.ctcd1mj9uzzg.ap-northeast-2.rds.amazonaws.com:3306/testdb";
 		         conn = DriverManager.getConnection(jdbcurl, "root", "ksm8828237!");
 		         String query = "SELECT * FROM member WHERE id=? AND pw=?";
 		         pstm = conn.prepareStatement(query);

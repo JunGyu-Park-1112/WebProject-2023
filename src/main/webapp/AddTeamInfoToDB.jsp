@@ -7,7 +7,7 @@
 
 <%
 HttpSession session = request.getSession();
-
+request.setCharacterEncoding("UTF-8");
 int classNum = Integer.parseInt((String)session.getAttribute("classNum"));
 String team_name = request.getParameter("TeamName");
 String team_description = request.getParameter("Description");

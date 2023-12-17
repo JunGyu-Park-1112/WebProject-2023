@@ -86,6 +86,8 @@
     border-left: 2px dotted black ;
     flex-basis:10em;
     text-align: center;
+    border-top-left-radius: 7px;
+    border-bottom-left-radius: 7px;
 }
 .TL_list_extra{
     background-color: #2E3C7E;

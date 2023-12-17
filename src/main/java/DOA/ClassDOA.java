@@ -23,7 +23,7 @@ public class ClassDOA {
 		Connection conn = null;
 	    PreparedStatement pstm = null;
 	    
-	    String jdbcurl = "jdbc:mariadb://127.0.0.1:3306/testDB";
+	    String jdbcurl = "jdbc:mariadb://testdb12.ctcd1mj9uzzg.ap-northeast-2.rds.amazonaws.com:3306/testdb";
 	    try {
 	    	String driver = "org.mariadb.jdbc.Driver";                           //JDBC driver 로드
 	        Class.forName(driver);
@@ -79,7 +79,7 @@ public class ClassDOA {
 	    try {
 	    	String driver = "org.mariadb.jdbc.Driver";                           //JDBC driver 로드
 	        Class.forName(driver);
-	        String jdbcurl = "jdbc:mariadb://127.0.0.1:3306/testDB";
+	        String jdbcurl = "jdbc:mariadb://testdb12.ctcd1mj9uzzg.ap-northeast-2.rds.amazonaws.com:3306/testdb";
 	        conn = DriverManager.getConnection(jdbcurl,"root","ksm8828237!");
 	        
 	        String query = "SELECT * FROM Classinfo";             //쿼리
@@ -127,5 +127,32 @@ public class ClassDOA {
 	            throw new RuntimeException(e.getMessage());
 	         } 
 	     }
+	}
+	public boolean isEnd(int class_Num)
+	{
+		boolean Result = false;
+		try {
+			String driver = "org.mariadb.jdbc.Driver";                           //JDBC driver 로드
+	        Class.forName(driver);
+	        String jdbcurl = "jdbc:mariadb://testdb12.ctcd1mj9uzzg.ap-northeast-2.rds.amazonaws.com:3306/testdb";
+	        Connection conn = DriverManager.getConnection(jdbcurl,"root","ksm8828237!");
+	        
+	        String query = "SELECT isEnd FROM classinfo WHERE ClassNum = ?";
+	        PreparedStatement pstm = conn.prepareStatement(query);
+	        pstm.setInt(1, class_Num);
+	        ResultSet rs = pstm.executeQuery();
+	        
+	        while(rs.next())
+	        {
+	        	if(rs.getInt("isEnd") == 1)
+	        		Result = true;
+	        	else
+	        		Result = false;
+	        }
+		}catch(Exception e)
+		{
+			System.out.println("ClassDOA - isEnd() 오류 발생...");
+		}
+		return Result;
 	}
 }

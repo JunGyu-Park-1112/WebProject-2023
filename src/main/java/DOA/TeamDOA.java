@@ -27,7 +27,7 @@ public class TeamDOA {
 		try {
 			String driver = "org.mariadb.jdbc.Driver";
 			Class.forName(driver);
-			String jdbcurl = "jdbc:mariadb://127.0.0.1:3306/testDB";
+			String jdbcurl = "jdbc:mariadb://testdb12.ctcd1mj9uzzg.ap-northeast-2.rds.amazonaws.com:3306/testdb";
 			
 			conn = DriverManager.getConnection(jdbcurl, "root", "ksm8828237!");
 			if(conn != null)
@@ -79,7 +79,7 @@ public class TeamDOA {
 		try {
 			String driver = "org.mariadb.jdbc.Driver";
 			Class.forName(driver);
-			String jdbcurl = "jdbc:mariadb://127.0.0.1:3306/testDB";
+			String jdbcurl = "jdbc:mariadb://testdb12.ctcd1mj9uzzg.ap-northeast-2.rds.amazonaws.com:3306/testdb";
 			
 			conn = DriverManager.getConnection(jdbcurl,"root","ksm8828237!");
 			if(conn != null)
@@ -127,7 +127,7 @@ public class TeamDOA {
 		try {
 			String driver = "org.mariadb.jdbc.Driver";
 			Class.forName(driver);
-			String jdbcurl = "jdbc:mariadb://127.0.0.1:3306/testDB";
+			String jdbcurl = "jdbc:mariadb://testdb12.ctcd1mj9uzzg.ap-northeast-2.rds.amazonaws.com:3306/testdb";
 			
 			conn = DriverManager.getConnection(jdbcurl,"root","ksm8828237!");
 			if(conn != null)
@@ -151,5 +151,49 @@ public class TeamDOA {
 		{
 			System.out.println("오류 발생...-AddTeamInfo" + e.getMessage());
 		}
+	}
+	public List<Team> LoadEndTeamInfo(int classNum) {
+		Connection conn = null;
+		PreparedStatement pstm = null;
+		List<Team> Teams = new ArrayList<>();
+		
+		try {
+			String driver = "org.mariadb.jdbc.Driver";
+			Class.forName(driver);
+			String jdbcurl = "jdbc:mariadb://testdb12.ctcd1mj9uzzg.ap-northeast-2.rds.amazonaws.com:3306/testdb";
+			
+			conn = DriverManager.getConnection(jdbcurl,"root","ksm8828237!");
+			
+			String Query = "Select * from team where class_Num = ? and FLAG = 1";
+			pstm = conn.prepareStatement(Query);
+			pstm.setInt(1, classNum);
+			ResultSet rs = pstm.executeQuery();
+			
+			while(rs.next())
+			{
+				Team team = new Team();
+				team.setClass_Num(rs.getString("class_Num"));
+	            team.setTeam_name(rs.getString("team_name"));
+	            team.setTeam_description(rs.getString("team_description"));
+	            team.setTeam_host(rs.getString("team_host"));
+	            team.setFlag(rs.getInt("FLAG"));
+	            
+	            //rs에서 String으로 받아온 값을, 리스트의 형태로 분리하여 Beans에 저장하여야 한다.
+	            List<String> candidate_List = new ArrayList<>();
+	            String candidates = rs.getString("team_candidate");
+	            for(int i = 0; i + 3 <= candidates.length(); i+=3)
+	            {
+	            	String candidate = candidates.substring(i,i+3);
+	            	candidate_List.add(candidate);
+	            }
+	            
+	            team.setTeam_candidate(candidate_List);
+	            Teams.add(team);
+			}
+		}catch(Exception e)
+		{
+			System.out.println("TeamDOA - LoadEndTeamInfo()의 오류 발생...");
+		}
+		return Teams;
 	}
 }
