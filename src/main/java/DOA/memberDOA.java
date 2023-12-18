@@ -49,7 +49,7 @@ public class memberDOA {
 	         }
 	         
 	         pstm.clearParameters();
-	         String query2 = "INSERT INTO MEMBER VALUES(?,?,?,?)";
+	         String query2 = "INSERT INTO member VALUES(?,?,?,?)";
 	         pstm = conn.prepareStatement(query2);
 	         
 	         pstm.setString(1,bean.getUser_name());
@@ -94,7 +94,7 @@ public class memberDOA {
 			String jdbcurl = "jdbc:mariadb://testdb12.ctcd1mj9uzzg.ap-northeast-2.rds.amazonaws.com:3306/testdb";
 			conn = DriverManager.getConnection(jdbcurl, "root", "ksm8828237!");
 			
-			String query = "INSERT INTO MEMBER VALUES(?,?,?,?)";
+			String query = "INSERT INTO member VALUES(?,?,?,?)";
 			pstm = conn.prepareStatement(query);
 			
 			pstm.setString(1,bean.getUser_name());

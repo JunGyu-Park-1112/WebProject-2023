@@ -79,7 +79,7 @@ public class TeamDOA {
 		try {
 			String driver = "org.mariadb.jdbc.Driver";
 			Class.forName(driver);
-			String jdbcurl = "jdbc:mariadb://testdb12.ctcd1mj9uzzg.ap-northeast-2.rds.amazonaws.com:3306/testdb";
+			String jdbcurl = "jdbc:mariadb://testdb12.ctcd1mj9uzzg.ap-northeast-2.rds.amazonaws.com/testdb";
 			
 			conn = DriverManager.getConnection(jdbcurl,"root","ksm8828237!");
 			if(conn != null)
@@ -127,7 +127,7 @@ public class TeamDOA {
 		try {
 			String driver = "org.mariadb.jdbc.Driver";
 			Class.forName(driver);
-			String jdbcurl = "jdbc:mariadb://testdb12.ctcd1mj9uzzg.ap-northeast-2.rds.amazonaws.com:3306/testdb";
+			String jdbcurl = "jdbc:mariadb://testdb12.ctcd1mj9uzzg.ap-northeast-2.rds.amazonaws.com/testdb";
 			
 			conn = DriverManager.getConnection(jdbcurl,"root","ksm8828237!");
 			if(conn != null)

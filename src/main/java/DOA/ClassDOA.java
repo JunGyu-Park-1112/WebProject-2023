@@ -23,14 +23,14 @@ public class ClassDOA {
 		Connection conn = null;
 	    PreparedStatement pstm = null;
 	    
-	    String jdbcurl = "jdbc:mariadb://testdb12.ctcd1mj9uzzg.ap-northeast-2.rds.amazonaws.com:3306/testdb";
+	    String jdbcurl = "jdbc:mariadb://testdb12.ctcd1mj9uzzg.ap-northeast-2.rds.amazonaws.com/testdb";
 	    try {
 	    	String driver = "org.mariadb.jdbc.Driver";                           //JDBC driver 로드
 	        Class.forName(driver);
 	        
 	        conn = DriverManager.getConnection(jdbcurl,"root","ksm8828237!");
 	        
-	        String query = "INSERT INTO Classinfo VALUES(?,?,?,?)";             //쿼리
+	        String query = "INSERT INTO classinfo ( ClassName, profName, description, ClassNum ) VALUES(?,?,?,?)";             //쿼리
 	        pstm = conn.prepareStatement(query);
 	        
 	        pstm.setString(1,bean.getClassName());
@@ -79,10 +79,10 @@ public class ClassDOA {
 	    try {
 	    	String driver = "org.mariadb.jdbc.Driver";                           //JDBC driver 로드
 	        Class.forName(driver);
-	        String jdbcurl = "jdbc:mariadb://testdb12.ctcd1mj9uzzg.ap-northeast-2.rds.amazonaws.com:3306/testdb";
+	        String jdbcurl = "jdbc:mariadb://testdb12.ctcd1mj9uzzg.ap-northeast-2.rds.amazonaws.com/testdb";
 	        conn = DriverManager.getConnection(jdbcurl,"root","ksm8828237!");
 	        
-	        String query = "SELECT * FROM Classinfo";             //쿼리
+	        String query = "SELECT * FROM classinfo";             //쿼리
 	        pstm = conn.prepareStatement(query);
 	        
 	        ResultSet rs = pstm.executeQuery(query);
@@ -137,7 +137,7 @@ public class ClassDOA {
 	        String jdbcurl = "jdbc:mariadb://testdb12.ctcd1mj9uzzg.ap-northeast-2.rds.amazonaws.com:3306/testdb";
 	        Connection conn = DriverManager.getConnection(jdbcurl,"root","ksm8828237!");
 	        
-	        String query = "SELECT isEnd FROM classinfo WHERE ClassNum = ?";
+	        String query = "SELECT IsEnd FROM classinfo WHERE ClassNum = ?";
 	        PreparedStatement pstm = conn.prepareStatement(query);
 	        pstm.setInt(1, class_Num);
 	        ResultSet rs = pstm.executeQuery();
